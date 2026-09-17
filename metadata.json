@@ -1,0 +1,6 @@
+{
+  "name": "Shambhu Ji RXL Billing",
+  "description": "Windows desktop billing application and physical bill generator for Shambhu Ji RXL with expression arithmetic, persistent storage, and printing.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

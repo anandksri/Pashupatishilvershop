@@ -1,0 +1,79 @@
+{
+  "name": "shambhu-ji-rxl-billing",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Windows Desktop Billing Application for Shambhu Ji RXL",
+  "main": "main.js",
+  "scripts": {
+    "dev": "vite --port=3000 --host=0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "cross-env NODE_ENV=development electron . --dev",
+    "dist": "vite build && electron-builder",
+    "dist:nsis": "vite build && electron-builder --win nsis",
+    "dist:portable": "vite build && electron-builder --win portable",
+    "clean": "rm -rf dist dist-electron",
+    "lint": "tsc --noEmit"
+  },
+  "build": {
+    "appId": "com.shambhuji.rxlbilling",
+    "productName": "Shambhu Ji RXL Billing",
+    "directories": {
+      "output": "dist-electron"
+    },
+    "files": [
+      "dist/**/*",
+      "main.js",
+      "preload.js",
+      "database/**/*",
+      "printing/**/*",
+      "google-drive/**/*",
+      "assets/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "artifactName": "Shambhu Ji RXL Billing Setup.${ext}"
+    },
+    "portable": {
+      "artifactName": "Shambhu Ji RXL Billing Portable.${ext}"
+    }
+  },
+  "dependencies": {
+    "@google/genai": "^2.4.0",
+    "@tailwindcss/vite": "^4.1.14",
+    "@vitejs/plugin-react": "^5.0.4",
+    "dotenv": "^17.2.3",
+    "express": "^4.21.2",
+    "googleapis": "^181.0.0",
+    "lucide-react": "^0.546.0",
+    "motion": "^12.23.24",
+    "react": "^19.0.1",
+    "react-dom": "^19.0.1",
+    "sql.js": "^1.14.2",
+    "vite": "^6.2.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.14.0",
+    "@types/sql.js": "^1.4.11",
+    "autoprefixer": "^10.4.21",
+    "cross-env": "^10.0.1",
+    "electron": "^44.3.0",
+    "electron-builder": "^26.0.0",
+    "esbuild": "^0.25.0",
+    "tailwindcss": "^4.1.14",
+    "tsx": "^4.21.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.3"
+  }
+}
